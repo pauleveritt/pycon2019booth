@@ -1,29 +1,11 @@
 """Download the calendars and generate output
 
 """
-from dataclasses import dataclass, field
-from datetime import time
-from typing import Optional, List
 
 from jinja2 import Environment, FileSystemLoader
 
+from pycon2019booth.models import Facility, BoothEvent
 from pycon2019booth.spreadsheetloader import get_theater_slots
-
-
-@dataclass
-class BoothEvent:
-    start: str
-    finish: str
-    title: str
-    who: str
-
-
-@dataclass
-class Facility:
-    title: str
-    thursday: Optional[List[BoothEvent]] = field(default_factory=list)
-    friday: Optional[List[BoothEvent]] = field(default_factory=list)
-    saturday: Optional[List[BoothEvent]] = field(default_factory=list)
 
 
 def make_theater() -> Facility:

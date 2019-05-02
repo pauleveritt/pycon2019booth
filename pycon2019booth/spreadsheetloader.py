@@ -5,12 +5,13 @@ from google.auth.transport.requests import Request
 from google_auth_oauthlib.flow import InstalledAppFlow
 from googleapiclient.discovery import build
 
-from generate import Facility, BoothEvent
+from .models import Facility, BoothEvent
 
 SCOPES = ['https://www.googleapis.com/auth/spreadsheets.readonly']
 
 SCHEDULE_SPREADSHEET_ID = '1CWqQLyVADwE-IwaGHHW9iChGhSsdyoSJrNfZMxER11I'
 THEATER_SHEET_NAME = 'Theater'
+
 
 def get_service():
     creds = None
@@ -33,6 +34,7 @@ def get_service():
             pickle.dump(creds, token)
 
     return build('sheets', 'v4', credentials=creds)
+
 
 def get_theater_slots(service) -> Facility:
     FACILITY_NAME = 'Theater'

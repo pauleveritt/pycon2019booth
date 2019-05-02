@@ -48,9 +48,9 @@ def get_theater_slots(service) -> Facility:
     CONFIRMED = 5
 
     # Dates
-    THURSDAY = '5/2'
-    FRIDAY = '5/3'
-    SATURDAY = '5/4'
+    THURSDAY = 'Thursday, May 2'
+    FRIDAY = 'Friday, May 3'
+    SATURDAY = 'Saturday, May 4'
 
     sheet = service.spreadsheets()
     result = sheet.values().get(spreadsheetId=SCHEDULE_SPREADSHEET_ID,
@@ -63,7 +63,7 @@ def get_theater_slots(service) -> Facility:
         return facility
 
     for row in values:
-        if row[CONFIRMED] != '1':
+        if len(row) <= 5 or row[CONFIRMED] != '1':
             continue
 
         event = BoothEvent(

@@ -51,7 +51,7 @@
         </div>
         <div class="column is-two-third">
             <h1 class="is-size-3">Saturday</h1>
-            {% for entry in theater.thursday %}
+            {% for entry in theater.saturday %}
                 {{ show_entry(start=entry.start, finish=entry.finish,
                     who=entry.who, title=entry.title) }}
             {% endfor %}

@@ -1,0 +1,12 @@
+{% macro show_entry(start, finish, who, title) -%}
+    <article class="media" style="margin-top: 1rem">
+        <figure class="media-left">
+            <div class="is-size-4 is-center has-text-centered">{{ start }}</div>
+            <div class="is-size-7 is-light has-text-centered">{{ finish }}</div>
+        </figure>
+        <div class="media-content">
+            <div><strong>{{ who }}</strong></div>
+            <small>{{ title }}</small>
+        </div>
+    </article>
+{%- endmacro %}

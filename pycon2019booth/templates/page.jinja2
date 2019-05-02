@@ -25,9 +25,6 @@
                 <a class="navbar-item">
                     Partners
                 </a>
-                <a class="navbar-item">
-                    Interviews
-                </a>
             </div>
 
         </div>
@@ -35,21 +32,21 @@
 </nav>
 <section class="section">
     <div class="columns">
-        <div class="column is-one-third">
+        <div class="column">
             <h1 class="is-size-3">Thursday</h1>
             {% for entry in theater.thursday %}
                 {{ show_entry(start=entry.start, finish=entry.finish,
                     who=entry.who, title=entry.title) }}
             {% endfor %}
         </div>
-        <div class="column is-two-third">
+        <div class="column">
             <h1 class="is-size-3">Friday</h1>
             {% for entry in theater.friday %}
                 {{ show_entry(start=entry.start, finish=entry.finish,
                     who=entry.who, title=entry.title) }}
             {% endfor %}
         </div>
-        <div class="column is-two-third">
+        <div class="column">
             <h1 class="is-size-3">Saturday</h1>
             {% for entry in theater.saturday %}
                 {{ show_entry(start=entry.start, finish=entry.finish,

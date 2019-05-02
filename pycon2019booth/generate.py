@@ -2,17 +2,17 @@
 
 """
 
-from jinja2 import Environment, FileSystemLoader
+from jinja2 import Environment, PackageLoader
 
-from pycon2019booth.models import Facility, BoothEvent
 from pycon2019booth.spreadsheetloader import get_theater_slots, get_service
+
 
 def main():
     theater = get_theater_slots(get_service())
-    env = Environment(loader=FileSystemLoader('templates'))
+    env = Environment(loader=PackageLoader('pycon2019booth', 'templates'))
     template = env.get_template('page.jinja2')
     output = template.render(theater=theater)
-    with open('../public/index.html', 'w') as o:
+    with open('./public/index.html', 'w') as o:
         o.write(output)
 
 
